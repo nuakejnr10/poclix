@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POCLIX - Blockchain Policy Transparency Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #ce1126 0%, #fcd116 50%, #006b3f 100%);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fcd116;
+            border: 4px solid #fef9c3;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #ce1126;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-star text-yellow-400 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">POCLIX</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-red-600">Home</a>
+                    <a href="#journey" class="nav-link text-gray-600 hover:text-red-600">Journey</a>
+                    <a href="#solution" class="nav-link text-gray-600 hover:text-red-600">Solution</a>
+                    <a href="#prototype" class="nav-link text-gray-600 hover:text-red-600">Prototype</a>
+                    <a href="#reflection" class="nav-link text-gray-600 hover:text-red-600">Reflection</a>
+                    <a href="#contact" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-gray-600 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-white py-4 px-6 shadow-lg">
+            <a href="#home" class="block py-2 text-gray-600 hover:text-red-600">Home</a>
+            <a href="#journey" class="block py-2 text-gray-600 hover:text-red-600">Journey</a>
+            <a href="#solution" class="block py-2 text-gray-600 hover:text-red-600">Solution</a>
+            <a href="#prototype" class="block py-2 text-gray-600 hover:text-red-600">Prototype</a>
+            <a href="#reflection" class="block py-2 text-gray-600 hover:text-red-600">Reflection</a>
+            <a href="#contact" class="block mt-2 bg-red-600 text-white px-4 py-2 rounded-md text-center hover:bg-red-700 transition duration-300">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-gray-800 py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Transforming Policy Participation in Ghana with Blockchain</h1>
+                <p class="text-xl mb-8">Empowering citizens through transparent, immutable policy tracking and participatory governance</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#solution" class="bg-yellow-400 text-gray-800 px-6 py-3 rounded-md font-medium hover:bg-yellow-500 transition duration-300 text-center">Explore Solution</a>
+                    <a href="#contact" class="border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-md font-medium hover:bg-gray-800 hover:text-white transition duration-300 text-center">Get Involved</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://i.pinimg.com/736x/dc/42/03/dc42031f1df78765bcc257336686d637.jpg" alt="Blockchain Technology" class="rounded-lg shadow-2xl max-w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">About POCLIX</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-10">
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        POCLIX is a blockchain-enabled platform designed to tackle the policy participation crisis in Ghana by increasing transparency, accountability, and citizen engagement in the policymaking process.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Our journey began with the realization that despite Ghana's democratic progress, many citizens feel disconnected from policy decisions that directly affect their lives. This disconnect leads to low participation, mistrust, and ineffective policy implementation.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                            <span class="text-gray-700">Transparent</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                            <span class="text-gray-700">Decentralized</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                            <span class="text-gray-700">Participatory</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Why Blockchain for Policy Tracking?</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-lock text-red-600 mt-1 mr-2"></i>
+                                <span class="text-gray-600">Immutable record of policy decisions and changes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-users text-red-600 mt-1 mr-2"></i>
+                                <span class="text-gray-600">Decentralized verification eliminates single points of failure</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-eye text-red-600 mt-1 mr-2"></i>
+                                <span class="text-gray-600">Transparent audit trail for all stakeholders</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-handshake text-red-600 mt-1 mr-2"></i>
+                                <span class="text-gray-600">Smart contracts enable automated policy implementation</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entrepreneurial Journey Section -->
+    <section id="journey" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">My Entrepreneurial Journey</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="border-l-2 border-yellow-400 ml-8 md:ml-16 py-10 space-y-12">
+                    <!-- Item 1 -->
+                    <div class="relative timeline-item pl-10">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-yellow-100 text-yellow-800 p-2 rounded-full mr-4">
+                                    <i class="fas fa-lightbulb text-lg"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-800">The Inspiration</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Witnessing firsthand the disconnect between policymakers and citizens during my community work in Accra. Noticed recurring patterns of policy decisions being made without adequate public participation or transparency.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="relative timeline-item pl-10">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-yellow-100 text-yellow-800 p-2 rounded-full mr-4">
+                                    <i class="fas fa-search text-lg"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-800">Problem Validation</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Conducted surveys with 500+ citizens across 5 regions in Ghana. Key findings:
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <p class="text-red-600 font-semibold">78%</p>
+                                    <p class="text-gray-600 text-sm">felt excluded from policy decisions affecting their communities</p>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <p class="text-red-600 font-semibold">65%</p>
+                                    <p class="text-gray-600 text-sm">didn't know how to track policy implementation</p>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <p class="text-red-600 font-semibold">83%</p>
+                                    <p class="text-gray-600 text-sm">would participate more if the process was transparent</p>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <p class="text-red-600 font-semibold">91%</p>
+                                    <p class="text-gray-600 text-sm">distrusted official policy implementation reports</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="relative timeline-item pl-10">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-yellow-100 text-yellow-800 p-2 rounded-full mr-4">
+                                    <i class="fas fa-brain text-lg"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-800">Ideation Phase</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Explored various technological solutions before settling on blockchain. The immutable, transparent nature of distributed ledger technology perfectly addressed the core issues of trust and accountability in policy tracking.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="relative timeline-item pl-10">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-yellow-100 text-yellow-800 p-2 rounded-full mr-4">
+                                    <i class="fas fa-rocket text-lg"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-800">Prototype Development</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Built initial MVP with Hyperledger Fabric, focusing on local government policy tracking in Accra. Partnered with 3 community organizations to test the platform with real policy data and user feedback.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">The Policy Participation Crisis in Ghana</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Key Pain Points</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="bg-red-100 text-red-600 p-1 rounded-full mr-3 mt-1">
+                                <i class="fas fa-times text-sm"></i>
+                            </div>
+                            <span class="text-gray-600">Opaque policy formulation processes with limited citizen input</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-red-100 text-red-600 p-1 rounded-full mr-3 mt-1">
+                                <i class="fas fa-times text-sm"></i>
+                            </div>
+                            <span class="text-gray-600">Difficulty tracking policy implementation progress and outcomes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-red-100 text-red-600 p-1 rounded-full mr-3 mt-1">
+                                <i class="fas fa-times text-sm"></i>
+                            </div>
+                            <span class="text-gray-600">Lack of trust in official policy implementation reports</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-red-100 text-red-600 p-1 rounded-full mr-3 mt-1">
+                                <i class="fas fa-times text-sm"></i>
+                            </div>
+                            <span class="text-gray-600">Limited avenues for meaningful citizen participation post-election</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-red-100 text-red-600 p-1 rounded-full mr-3 mt-1">
+                                <i class="fas fa-times text-sm"></i>
+                            </div>
+                            <span class="text-gray-600">Fragmented information sources making policy tracking cumbersome</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">The Consequences</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="chart-container">
+                            <canvas id="problemChart"></canvas>
+                        </div>
+                        <p class="text-gray-500 text-sm mt-2 text-center">Survey of 500 Ghanaian citizens across 5 regions (2023)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                <div class="flex items-start">
+                    <div class="bg-yellow-100 text-yellow-800 p-3 rounded-full mr-4">
+                        <i class="fas fa-exclamation-circle text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">The Core Issue</h3>
+                        <p class="text-gray-600">
+                            The current system creates a vicious cycle: citizens don't participate because they don't trust the process, and the process remains opaque because there's little citizen demand for transparency. POCLIX breaks this cycle by creating an immutable, transparent record of policy formulation and implementation that all stakeholders can trust and participate in.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">The POCLIX Solution</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md feature-card transition duration-300">
+                    <div class="bg-yellow-100 text-yellow-800 p-3 rounded-full inline-block mb-4">
+                        <i class="fas fa-project-diagram text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Blockchain-Powered Transparency</h3>
+                    <p class="text-gray-600">
+                        Every policy decision, amendment, and implementation milestone is recorded on an immutable blockchain ledger, creating a tamper-proof audit trail accessible to all stakeholders.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md feature-card transition duration-300">
+                    <div class="bg-yellow-100 text-yellow-800 p-3 rounded-full inline-block mb-4">
+                        <i class="fas fa-comments text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Participatory Governance</h3>
+                    <p class="text-gray-600">
+                        Citizens can comment on proposed policies, vote on priorities, and receive notifications about policy changes affecting their communities through our mobile and web platforms.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md feature-card transition duration-300">
+                    <div class="bg-yellow-100 text-yellow-800 p-3 rounded-full inline-block mb-4">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Real-Time Tracking</h3>
+                    <p class="text-gray-600">
+                        Interactive dashboards allow citizens to track policy implementation progress, budget allocations, and outcomes with verifiable data sources and visualizations.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md mb-12">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">How POCLIX Works</h3>
+                <div class="flex justify-center mb-8">
+                    <img src="./poclix.jpg" alt="POCLIX Workflow" class="rounded-lg max-w-full h-auto shadow-md">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                        <div class="bg-yellow-100 text-yellow-800 p-3 rounded-full inline-block mb-2">
+                            <span class="font-bold">1</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-1">Policy Proposal</h4>
+                        <p class="text-gray-600 text-sm">Government agencies submit policy proposals to the blockchain network</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                        <div class="bg-yellow-100 text-yellow-800 p-3 rounded-full inline-block mb-2">
+                            <span class="font-bold">2</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-1">Public Participation</h4>
+                        <p class="text-gray-600 text-sm">Citizens review, comment, and vote on proposals through the platform</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                        <div class="bg-yellow-100 text-yellow-800 p-3 rounded-full inline-block mb-2">
+                            <span class="font-bold">3</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-1">Implementation Tracking</h4>
+                        <p class="text-gray-600 text-sm">Approved policies are tracked with milestones recorded on blockchain</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                        <div class="bg-yellow-100 text-yellow-800 p-3 rounded-full inline-block mb-2">
+                            <span class="font-bold">4</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-1">Outcome Verification</h4>
+                        <p class="text-gray-600 text-sm">Independent verification of policy outcomes by trusted validators</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Unique Selling Points</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="bg-green-100 text-green-600 p-1 rounded-full mr-3 mt-1">
+                                <i class="fas fa-check text-sm"></i>
+                            </div>
+                            <span class="text-gray-600"><strong>Trust Through Technology:</strong> Blockchain eliminates doubts about data manipulation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 text-green-600 p-1 rounded-full mr-3 mt-1">
+                                <i class="fas fa-check text-sm"></i>
+                            </div>
+                            <span class="text-gray-600"><strong>Low-Barrier Participation:</strong> Accessible via USSD for feature phones and smartphones</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 text-green-600 p-1 rounded-full mr-3 mt-1">
+                                <i class="fas fa-check text-sm"></i>
+                            </div>
+                            <span class="text-gray-600"><strong>Incentivized Engagement:</strong> Token rewards for meaningful participation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 text-green-600 p-1 rounded-full mr-3 mt-1">
+                                <i class="fas fa-check text-sm"></i>
+                            </div>
+                            <span class="text-gray-600"><strong>Localized Content:</strong> Available in major Ghanaian languages</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Implementation Roadmap</h3>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-600 text-white p-2 rounded-full mr-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <p class="text-gray-700">Phase 1: Accra Pilot (Q3 2024)</p>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-600 text-white p-2 rounded-full mr-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <p class="text-gray-700">Phase 2: Nationwide Expansion (Q1 2025)</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-red-600 text-white p-2 rounded-full mr-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <p class="text-gray-700">Phase 3: Regional Integration (Q4 2025)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prototype Section -->
+    <section id="prototype" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Interactive Prototype</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            <div class="bg-gray-100 p-8 rounded-lg shadow-lg">
+                <p class="text-center text-gray-600 mb-8">Explore a live demo of the POCLIX platform. Click through the features to see how transparent policy tracking works in action.</p>
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-4 border-gray-300">
+                    <!-- Replace with your Figma or other interactive prototype embed -->
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F...%2FUntitled%3Fnode-id%3D1%253A2%26scaling%3Dmin-zoom%26page-id%3D0%253A1" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflection Section -->
+    <section id="reflection" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Reflection & Future Vision</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Lessons Learned</h3>
+                    <p class="text-gray-600 mb-6">This journey has reinforced the importance of user-centric design and the power of technology to solve deep-rooted societal problems. The biggest challenge was not the technology itself, but building trust with communities and government stakeholders.</p>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Future Vision</h3>
+                    <p class="text-gray-600">Our vision is to make POCLIX the de-facto standard for policy co-creation and tracking across Africa. We plan to integrate AI for policy analysis and expand our educational programs to foster a new generation of engaged citizens.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Get Involved</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <p class="text-center text-gray-600 mb-8">Have questions, want to partner, or interested in joining our mission? We'd love to hear from you.</p>
+                    <form action="#" method="POST">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-red-600 text-white px-8 py-3 rounded-md font-medium hover:bg-red-700 transition duration-300">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-semibold">&copy; 2024 POCLIX. All Rights Reserved.</p>
+            <p class="text-sm">Building a transparent future for Ghana, together.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Hide mobile menu on click
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Chart.js for Problem Section
+        const ctx = document.getElementById('problemChart').getContext('2d');
+        const problemChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Excluded from Decisions', 'Can\'t Track Implementation', 'Would Participate if Transparent', 'Distrust Official Reports'],
+                datasets: [{
+                    label: '% of Citizens',
+                    data: [78, 65, 83, 91],
+                    backgroundColor: [
+                        'rgba(206, 17, 38, 0.6)',
+                        'rgba(206, 17, 38, 0.6)',
+                        'rgba(0, 107, 63, 0.6)',
+                        'rgba(206, 17, 38, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(206, 17, 38, 1)',
+                        'rgba(206, 17, 38, 1)',
+                        'rgba(0, 107, 63, 1)',
+                        'rgba(206, 17, 38, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Key Citizen Concerns'
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
